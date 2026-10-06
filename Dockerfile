@@ -15,7 +15,10 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
 
 WORKDIR /var/www/html
 COPY . .
-RUN chmod +x docker/entrypoint.sh
+# data/ holds the SQLite file when DB_DRIVER=sqlite; Apache runs as www-data and must be able to write it
+RUN chmod +x docker/entrypoint.sh \
+    && mkdir -p data \
+    && chown www-data:www-data data
 
 EXPOSE 10000
 CMD ["docker/entrypoint.sh"]

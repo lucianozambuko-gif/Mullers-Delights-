@@ -58,7 +58,39 @@ function migrate(): array
         $log[] = 'seeded starting content';
     }
 
+    $admin = ensure_env_admin();
+    if ($admin !== null) {
+        $log[] = $admin;
+    }
+
     return $log;
+}
+
+/**
+ * Creates the first admin from ADMIN_EMAIL and ADMIN_PASSWORD when no admin
+ * exists yet. Needed where the database does not survive a restart (SQLite on
+ * Render's free plan), so the login comes back by itself. Never overwrites or
+ * adds to existing admins.
+ */
+function ensure_env_admin(): ?string
+{
+    $email = strtolower(trim((string) env('ADMIN_EMAIL', '')));
+    $password = (string) env('ADMIN_PASSWORD', '');
+    if ($email === '' && $password === '') {
+        return null;
+    }
+    if ((int) scalar('SELECT COUNT(*) FROM admins') > 0) {
+        return null;
+    }
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+        throw new RuntimeException('ADMIN_EMAIL is not a valid email address.');
+    }
+    if (strlen($password) < 10) {
+        throw new RuntimeException('ADMIN_PASSWORD must be at least 10 characters.');
+    }
+    q('INSERT INTO admins (name, email, password_hash, created_at) VALUES (?, ?, ?, ?)',
+        [env('ADMIN_NAME', 'Admin'), $email, password_hash($password, PASSWORD_DEFAULT), now_utc()]);
+    return 'created admin from ADMIN_EMAIL';
 }
 
 function seed_defaults(): void

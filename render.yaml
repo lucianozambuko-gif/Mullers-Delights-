@@ -12,7 +12,17 @@ services:
         value: "1"
       - key: APP_TIMEZONE
         value: Africa/Harare
-      # Aiven service URI: mysql://user:password@host:port/defaultdb
+      # DEMO MODE: the database is a SQLite file inside the container. It costs nothing
+      # and needs no other service, but it is wiped whenever the service sleeps or
+      # redeploys. To go live, delete DB_DRIVER and set DATABASE_URL instead.
+      - key: DB_DRIVER
+        value: sqlite
+      # The admin login is recreated from these two on every start while no admin exists
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      # MySQL service URI for going live: mysql://user:password@host:port/dbname
       - key: DATABASE_URL
         sync: false
       # Optional: path to the Aiven CA certificate uploaded as a Render Secret File

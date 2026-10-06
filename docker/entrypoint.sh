@@ -10,4 +10,7 @@ sed -ri "s/<VirtualHost \*:[0-9]+>/<VirtualHost *:${PORT}>/" /etc/apache2/sites-
 # instead of starting a site that cannot reach its database.
 php bin/migrate.php
 
+# The migration runs as root; hand any SQLite file it created to the web server user
+chown -R www-data:www-data data 2>/dev/null || true
+
 exec apache2-foreground

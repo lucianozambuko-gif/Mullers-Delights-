@@ -66,6 +66,18 @@ client-source/          The client's original flyer and logo pack (not deployed)
 
 Never commit `.env`. It is in `.gitignore`.
 
+## Free demo on Render (no database service)
+
+`render.yaml` ships in demo mode: `DB_DRIVER=sqlite`, so the database is a file inside the container and Render is the only service needed.
+
+1. Render: New > Blueprint, pick the repository and branch.
+2. Set `ADMIN_EMAIL` and `ADMIN_PASSWORD` (10 characters or more). Leave everything else empty.
+3. Deploy, then log in at `/admin` with those details.
+
+**Demo data does not last.** On Render's free plan the container's disk is wiped whenever the service sleeps (after about 15 minutes idle) or redeploys. Bookings, edits and extra admins are lost and the site returns to its starting content. The admin from `ADMIN_EMAIL` and `ADMIN_PASSWORD` is recreated on each start, so the login always works. Do not take real bookings in demo mode.
+
+To go live, delete `DB_DRIVER` in Render's Environment tab and set `DATABASE_URL` to a MySQL database, as below. `ADMIN_EMAIL` and `ADMIN_PASSWORD` can then be removed: they only ever create an admin when none exists.
+
 ## Deploy to Render with Aiven MySQL
 
 1. **Aiven**: create a MySQL service. Copy its Service URI and download its CA certificate (`ca.pem`).
