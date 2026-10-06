@@ -1,0 +1,10 @@
+.git
+.gitignore
+.env
+.env.example
+.qodo
+data
+client-source
+README.md
+render.yaml
+*.log

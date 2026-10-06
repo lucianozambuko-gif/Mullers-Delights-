@@ -1,0 +1,32 @@
+# Render Blueprint: one Docker web service. The MySQL database lives on Aiven.
+services:
+  - type: web
+    name: mullers-delights
+    runtime: docker
+    plan: free
+    healthCheckPath: /health.php
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: TRUST_PROXY
+        value: "1"
+      - key: APP_TIMEZONE
+        value: Africa/Harare
+      # Aiven service URI: mysql://user:password@host:port/defaultdb
+      - key: DATABASE_URL
+        sync: false
+      # Optional: path to the Aiven CA certificate uploaded as a Render Secret File
+      - key: DB_SSL_CA
+        sync: false
+      # Needed once, to open /admin/setup.php?token=... and create the first admin
+      - key: ADMIN_SETUP_TOKEN
+        generateValue: true
+      # Public address of the site, used for Paynow callbacks. Set when a custom domain is added.
+      - key: APP_URL
+        sync: false
+      - key: PAYNOW_INTEGRATION_ID
+        sync: false
+      - key: PAYNOW_INTEGRATION_KEY
+        sync: false
+      - key: PAYNOW_AUTH_EMAIL
+        sync: false

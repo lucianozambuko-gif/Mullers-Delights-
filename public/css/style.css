@@ -1,0 +1,656 @@
+/********** Template CSS **********/
+:root {
+    --primary: #D9A53F;
+    --primary-deep: #A9781F;
+    --dark: #5B0E1B;
+    --dark-deep: #3A0811;
+    --light: #FBF6EA;
+    --whatsapp: #128C7E;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    background: var(--light);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+h5, .h5 {
+    font-size: 1.4rem;
+}
+
+h6, .h6 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    letter-spacing: .08em;
+}
+
+a {
+    color: var(--primary-deep);
+}
+
+a:hover {
+    color: var(--dark);
+}
+
+.ff-secondary {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+
+/*** Bootstrap colour overrides (the bundled bootstrap.min.css is compiled with the template's orange/navy) ***/
+.bg-dark {
+    background-color: var(--dark) !important;
+}
+
+.bg-light {
+    background-color: var(--light) !important;
+}
+
+.text-primary {
+    color: var(--primary-deep) !important;
+}
+
+.bg-dark .text-primary,
+.hero-header .text-primary {
+    color: var(--primary) !important;
+}
+
+.border-primary {
+    border-color: var(--primary) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 .25rem rgba(217, 165, 63, .25);
+}
+
+
+/*** Button ***/
+.btn {
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    transition: .5s;
+}
+
+.btn.btn-primary {
+    color: var(--dark);
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:focus,
+.btn.btn-primary:active {
+    color: var(--dark);
+    background-color: #EBC168;
+    border-color: #EBC168;
+}
+
+.btn.btn-primary:focus,
+.btn.btn-outline-light:focus,
+.btn.btn-whatsapp:focus {
+    box-shadow: 0 0 0 .25rem rgba(217, 165, 63, .4);
+}
+
+.btn.btn-outline-light:hover {
+    color: var(--dark);
+}
+
+.btn.btn-whatsapp {
+    color: #FFFFFF;
+    background-color: var(--whatsapp);
+    border-color: var(--whatsapp);
+}
+
+.btn.btn-whatsapp:hover {
+    color: #FFFFFF;
+    background-color: #0C6B60;
+    border-color: #0C6B60;
+}
+
+
+/*** Navbar ***/
+.navbar-dark {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    border-bottom: 1px solid rgba(217, 165, 63, .35);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    position: relative;
+    margin-left: 25px;
+    padding: 35px 0;
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    letter-spacing: .08em;
+    color: var(--light) !important;
+    text-transform: uppercase;
+    font-weight: 500;
+    outline: none;
+    transition: .5s;
+}
+
+.sticky-top.navbar-dark .navbar-nav .nav-link {
+    padding: 20px 0;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus-visible,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--primary) !important;
+}
+
+.navbar-dark .navbar-brand img {
+    width: auto;
+    height: 64px;
+    transition: .5s;
+}
+
+.sticky-top.navbar-dark .navbar-brand img {
+    height: 50px;
+}
+
+.navbar-dark .navbar-toggler {
+    padding: .5rem .75rem;
+    color: var(--primary);
+    border-color: rgba(217, 165, 63, .5);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-dark .navbar-collapse {
+        margin-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .navbar-dark .navbar-nav .nav-link,
+    .sticky-top.navbar-dark .navbar-nav .nav-link {
+        padding: 12px 0;
+        margin-left: 0;
+    }
+
+    .navbar-dark .navbar-brand img,
+    .sticky-top.navbar-dark .navbar-brand img {
+        height: 46px;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-dark {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background: transparent !important;
+        border-bottom-color: transparent;
+    }
+
+    .sticky-top.navbar-dark {
+        position: fixed;
+        background: var(--dark) !important;
+        border-bottom-color: rgba(217, 165, 63, .35);
+    }
+}
+
+
+/*** Hero Header ***/
+.hero-header {
+    background: radial-gradient(circle at 75% 55%, #7C1627 0%, var(--dark) 45%, var(--dark-deep) 100%);
+}
+
+.hero-header .hero-platter {
+    animation: imgRotate 50s linear infinite;
+    filter: drop-shadow(0 20px 35px rgba(0, 0, 0, .45));
+}
+
+@keyframes imgRotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hero-tagline {
+    color: var(--primary);
+    font-size: 2.2rem;
+}
+
+.hero-lead {
+    color: rgba(251, 246, 234, .9);
+}
+
+@media (max-width: 991.98px) {
+    .hero-header .hero-platter {
+        max-width: 320px;
+        width: 80%;
+    }
+
+    .hero-header .container {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-header .btn {
+        display: block;
+        width: 100%;
+    }
+}
+
+
+/*** Section Title ***/
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::before {
+    position: absolute;
+    content: "";
+    width: 45px;
+    height: 2px;
+    top: 50%;
+    left: -55px;
+    margin-top: -1px;
+    background: var(--primary);
+}
+
+.section-title::after {
+    position: absolute;
+    content: "";
+    width: 45px;
+    height: 2px;
+    top: 50%;
+    right: -55px;
+    margin-top: -1px;
+    background: var(--primary);
+}
+
+.section-title.text-start::before,
+.section-title.text-end::after {
+    display: none;
+}
+
+
+/*** Service ***/
+.service-item {
+    background: #FFFFFF;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transition: .5s;
+}
+
+.service-item:hover {
+    background: var(--dark);
+}
+
+.service-item * {
+    transition: .5s;
+}
+
+.service-item:hover * {
+    color: var(--light) !important;
+}
+
+.service-item:hover i {
+    color: var(--primary) !important;
+}
+
+
+/*** About ***/
+.about-grid img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center top;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .12);
+}
+
+
+/*** Packages ***/
+.package-intro {
+    max-width: 520px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--dark);
+}
+
+.package-card {
+    padding: 2rem 1.5rem 1.5rem;
+    background: var(--dark);
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 45px rgba(0, 0, 0, .12);
+}
+
+.package-title {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    color: var(--primary);
+    text-align: center;
+    border-bottom: 1px solid rgba(217, 165, 63, .4);
+}
+
+.package-row {
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    padding: 10px 12px;
+    color: var(--light);
+    font-size: 1.15rem;
+    font-weight: 500;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.package-row:hover,
+.package-row:focus-visible {
+    color: var(--light);
+    background: rgba(217, 165, 63, .16);
+    transform: translateY(-2px);
+}
+
+.package-row i {
+    flex-shrink: 0;
+    width: 38px;
+    font-size: 1.3rem;
+    color: var(--primary);
+}
+
+.package-dots {
+    flex-grow: 1;
+    margin: 0 12px;
+    border-bottom: 2px dotted rgba(251, 246, 234, .45);
+}
+
+.package-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--primary);
+}
+
+.package-note {
+    margin-top: 1rem;
+    font-style: italic;
+    text-align: center;
+    color: rgba(251, 246, 234, .8);
+}
+
+
+/*** Events ***/
+.event-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: #FFFFFF;
+    border-left: 4px solid var(--primary);
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transition: .5s;
+}
+
+.event-item:hover {
+    transform: translateY(-4px);
+}
+
+.event-item i {
+    flex-shrink: 0;
+    width: 56px;
+    margin-top: 4px;
+    color: var(--primary-deep);
+}
+
+
+/*** Booking ***/
+.booking-steps {
+    margin-bottom: 2rem;
+    padding-left: 1.25rem;
+    color: rgba(251, 246, 234, .9);
+}
+
+.booking-steps li {
+    margin-bottom: .6rem;
+    padding-left: .35rem;
+}
+
+.booking-steps li::marker {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.booking-label {
+    font-family: 'Jost', sans-serif;
+    font-size: .85rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--primary);
+}
+
+.booking-phone {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--light);
+    text-decoration: none;
+}
+
+.booking-phone i {
+    font-size: 1.1rem;
+    color: var(--primary);
+}
+
+.booking-phone:hover {
+    color: var(--primary);
+}
+
+
+/*** Footer ***/
+.footer {
+    background-color: var(--dark-deep) !important;
+}
+
+.footer .text-primary {
+    color: var(--primary) !important;
+}
+
+.footer a {
+    color: var(--light);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--primary);
+}
+
+.footer-logo {
+    width: 190px;
+    height: auto;
+}
+
+.footer-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.footer .btn.btn-social {
+    margin-right: 5px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    border: 1px solid #FFFFFF;
+    border-radius: 44px;
+    transition: .3s;
+}
+
+.footer .btn.btn-social:hover {
+    color: var(--dark);
+}
+
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 4px 0;
+    text-align: left;
+    color: #FFFFFF;
+    font-family: 'Heebo', sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    letter-spacing: 0;
+    text-transform: capitalize;
+    transition: .3s;
+}
+
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+    color: var(--primary);
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+.footer .copyright {
+    padding: 25px 70px 25px 0;
+    font-size: 15px;
+    border-top: 1px solid rgba(256, 256, 256, .1);
+}
+
+@media (max-width: 767.98px) {
+    .footer .copyright {
+        padding-left: 70px;
+    }
+}
+
+
+/*** WhatsApp Button ***/
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 99;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #FFFFFF;
+    background-color: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .3);
+    text-decoration: none;
+    transition: .3s;
+}
+
+.whatsapp-float:hover {
+    color: #FFFFFF;
+    transform: scale(1.08);
+}
+
+
+/*** Booking form extras ***/
+.booking-details {
+    height: 110px !important;
+}
+
+/* Honeypot: kept out of sight and out of the tab order, but still in the DOM for bots */
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.form-check-input:checked {
+    background-color: var(--dark);
+    border-color: var(--dark);
+}
+
+.form-check-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 .25rem rgba(217, 165, 63, .25);
+}
+
+
+/*** Secondary pages (booking status, privacy) ***/
+.navbar-dark.simple-nav {
+    position: sticky;
+    width: auto;
+    background: var(--dark) !important;
+    border-bottom-color: rgba(217, 165, 63, .35);
+}
+
+.navbar-dark.simple-nav .navbar-brand img {
+    height: 50px;
+}
+
+.simple-page main {
+    min-height: 60vh;
+}
+
+.simple-card {
+    max-width: 680px;
+}
+
+.booking-ref {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: .08em;
+    color: var(--dark);
+}
+
+.status-step {
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
+    background: var(--light);
+    border-left: 4px solid var(--primary);
+    border-radius: 5px;
+}
+
+.booking-summary dt {
+    font-weight: 500;
+    color: #555;
+}
+
+.booking-summary dd {
+    overflow-wrap: anywhere;
+}
+
+.legal h4 {
+    margin-top: 2rem;
+}
+
+.simple-page .footer .copyright {
+    padding-right: 0;
+}

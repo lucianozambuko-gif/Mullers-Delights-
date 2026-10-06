@@ -1,0 +1,215 @@
+/********** Admin panel **********/
+body.admin {
+    background: #F6F1E6;
+}
+
+.admin-nav {
+    background: var(--dark);
+    border-bottom: 1px solid rgba(217, 165, 63, .35);
+}
+
+.admin-nav .navbar-brand img {
+    width: auto;
+    height: 46px;
+}
+
+/* Overrides the public navbar's tall, absolutely positioned desktop layout */
+.admin .navbar-dark {
+    position: sticky;
+    width: auto;
+    background: var(--dark) !important;
+}
+
+.admin .navbar-dark .navbar-nav .nav-link {
+    margin-left: 0;
+    padding: 18px 14px;
+    font-size: 14px;
+}
+
+@media (max-width: 991.98px) {
+    .admin .navbar-dark .navbar-nav .nav-link {
+        padding: 12px 0;
+    }
+}
+
+.admin-user {
+    color: var(--light);
+    font-size: 14px;
+}
+
+.admin-title {
+    font-size: 2.2rem;
+}
+
+.admin-card {
+    display: block;
+    padding: 1.25rem;
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, .06);
+}
+
+.admin .form-label {
+    margin-bottom: .25rem;
+    font-size: .85rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.admin .btn {
+    letter-spacing: .04em;
+}
+
+.admin .btn-sm {
+    min-height: 36px;
+}
+
+.admin .btn.btn-dark {
+    background: var(--dark);
+    border-color: var(--dark);
+}
+
+.admin .btn.btn-outline-dark {
+    color: var(--dark);
+    border-color: var(--dark);
+}
+
+.admin .btn.btn-outline-dark:hover {
+    color: #FFFFFF;
+    background: var(--dark);
+}
+
+.admin .form-check-input:checked {
+    background-color: var(--dark);
+    border-color: var(--dark);
+}
+
+
+/*** Dashboard ***/
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.25rem;
+    color: var(--light);
+    background: var(--dark);
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+a.stat-card:hover {
+    color: var(--light);
+    background: #741425;
+}
+
+.stat-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--primary);
+}
+
+.stat-label {
+    margin-top: .5rem;
+    font-family: 'Jost', sans-serif;
+    font-size: .8rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.list-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .75rem 0;
+    color: inherit;
+    border-top: 1px solid #EEE7D8;
+    text-decoration: none;
+}
+
+a.list-row:hover {
+    color: var(--dark);
+    background: #FBF6EA;
+}
+
+
+/*** Bookings ***/
+.booking-card {
+    color: inherit;
+    border-left: 4px solid var(--primary);
+    text-decoration: none;
+    transition: .2s;
+}
+
+.booking-card:hover {
+    color: inherit;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .1);
+}
+
+.booking-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    color: var(--dark);
+}
+
+.booking-card-meta i {
+    width: 18px;
+    color: var(--primary-deep);
+}
+
+
+/*** Packages and events ***/
+.item-form {
+    padding: .75rem 0;
+    border-bottom: 1px solid #EEE7D8;
+}
+
+.item-form.add-form {
+    border-bottom: 0;
+}
+
+.save-bar {
+    position: sticky;
+    bottom: 0;
+    padding: 1rem 0;
+    background: linear-gradient(rgba(246, 241, 230, 0), #F6F1E6 35%);
+    text-align: right;
+}
+
+
+/*** Login and setup ***/
+body.admin-auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: radial-gradient(circle at 50% 30%, #7C1627 0%, var(--dark) 50%, var(--dark-deep) 100%);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem 1.5rem;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+}
+
+.auth-logo {
+    display: block;
+    width: 130px;
+    height: auto;
+    margin: -5.5rem auto 1rem;
+    padding: 12px;
+    background: var(--dark);
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .3);
+}
+
+body.admin-auth {
+    padding-top: 90px;
+}
